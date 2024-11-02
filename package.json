@@ -1,14 +1,13 @@
 {
-    "name": "resume-generator",
+    "name": "your-project-name",
     "version": "1.0.0",
-    "description": "A Django application for generating resumes in PDF format",
     "scripts": {
-      "build": "bash build_files.sh"
+      "postinstall": "apt-get update && apt-get install -y libnss3 libnspr4 libgbm1 || true",
+      "start": "python resume/wsgi.py"
     },
     "dependencies": {
       "playwright": "^1.32.0",
-      "Django": "^4.0"
-    },
-    "devDependencies": {}
+      "your-other-dependencies": "version"
+    }
   }
   
