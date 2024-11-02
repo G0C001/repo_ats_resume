@@ -2,4 +2,4 @@
 
 # Install Python dependencies
 pip3 install -r requirements.txt
-pip3 -m playwright install
+python3 -m playwright install
