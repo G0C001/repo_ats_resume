@@ -1,4 +1,7 @@
-#!/bin/bash
+python3 -m venv venv
+source venv/bin/activate
 
-# Install Python dependencies
-pip3 install -r requirements.txt
+pip install -r requirements.txt
+
+python -m pip install playwright
+python -m playwright install

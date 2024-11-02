@@ -1,11 +1,14 @@
 {
-    "name": "my-project",
+    "name": "resume-generator",
     "version": "1.0.0",
+    "description": "A Django application for generating resumes in PDF format",
     "scripts": {
-      "build": "python -m playwright install"
+      "build": "bash build_files.sh"
     },
     "dependencies": {
-      "playwright": "latest"
-    }
+      "playwright": "^1.32.0",
+      "Django": "^4.0"
+    },
+    "devDependencies": {}
   }
   
