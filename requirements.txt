@@ -1,2 +1,4 @@
 django
 WeasyPrint
+pycairo
+pango
