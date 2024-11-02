@@ -23,8 +23,5 @@
       "src": "/(.*)",
       "dest": "resume/wsgi.py"
     }
-  ],
-  "hooks": {
-    "postinstall": "python3 -m playwright install"
-  }
+  ]
 }
