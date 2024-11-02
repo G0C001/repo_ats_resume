@@ -1,4 +1,5 @@
 Django==5.1.2
+gunicorn==21.2.0
 weasyprint  # Ensure this matches your version of WeasyPrint
 cffi==1.15.1  # Required by WeasyPrint
 lxml==4.9.3  # Required for WeasyPrint
