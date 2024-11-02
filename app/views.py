@@ -1,11 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from app.body import styleresume, personal, summary, education, experience_certfy, skills, project_lang
-
+from weasyprint import HTML
 
 def resume(request):
         if request.method == 'POST':
-            from weasyprint import HTML
+            
             role = request.POST.get('Role')
             skill = request.POST.get('skill')
             
