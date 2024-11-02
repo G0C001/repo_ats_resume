@@ -16,7 +16,7 @@ apt-get install -y libnss3 libnspr4 libgbm1
 
 # Install Playwright and its browsers
 pip install playwright
-python -m playwright install
+playwright install-deps
 
 # Optionally, you can deactivate the virtual environment after installation
 # deactivate
