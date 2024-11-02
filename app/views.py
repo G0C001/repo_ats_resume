@@ -4,28 +4,28 @@ from app.body import styleresume, personal, summary, education, experience_certf
 from weasyprint import HTML
 
 def resume(request):
-    if request.method == 'POST':
-        role = request.POST.get('Role')
-        skill = request.POST.get('skill')
+    # if request.method == 'POST':
+        # role = request.POST.get('Role')
+        # skill = request.POST.get('skill')
         
-        html_template = f"""
-            {styleresume.style()}
-            <body>
-                <div class="container">
-                    {personal.personal(role)}
-                    {summary.summary(role)}
-                    {education.education()}
-                    {experience_certfy.experience_certfy()}
-                    {skills.skill(skill)}
-                    {project_lang.project_lan()}
-                </div>
-            </body>
-        """
-        pdf_file = HTML(string=html_template).write_pdf()
+        # html_template = f"""
+        #     {styleresume.style()}
+        #     <body>
+        #         <div class="container">
+        #             {personal.personal(role)}
+        #             {summary.summary(role)}
+        #             {education.education()}
+        #             {experience_certfy.experience_certfy()}
+        #             {skills.skill(skill)}
+        #             {project_lang.project_lan()}
+        #         </div>
+        #     </body>
+        # """
+        # pdf_file = HTML(string=html_template).write_pdf()
 
-        response = HttpResponse(pdf_file, content_type='application/pdf')
-        response['Content-Disposition'] = f'inline; filename="GokulVasanth_{role}_Resume.pdf"'
+        # response = HttpResponse(pdf_file, content_type='application/pdf')
+        # response['Content-Disposition'] = f'inline; filename="GokulVasanth_{role}_Resume.pdf"'
 
-        return response
+        # return response
         
     return render(request, 'index.html')
