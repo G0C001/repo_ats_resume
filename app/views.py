@@ -1,31 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from app.body import styleresume, personal, summary, education, experience_certfy, skills, project_lang
-import asyncio
-from playwright.async_api import async_playwright
 
-async def generate_pdf(html_content):
-    async with async_playwright() as p:
-        browser = await p.chromium.launch()
-        page = await browser.new_page()
-
-        # Set the HTML content
-        await page.set_content(html_content)
-
-        # Generate PDF
-        pdf_file = await page.pdf(format='A4')
-
-        await browser.close()
-
-        return pdf_file
-    
 def resume(request):
     if request.method == 'POST':
         role = request.POST.get('Role')
         skill = request.POST.get('skill')
-
-        # Generate HTML content for the PDF
-        html_template = f"""
+        global html_content
+        html_content = f"""
                         {styleresume.style()}
                         <body>
                             <div class="container">
@@ -36,15 +18,20 @@ def resume(request):
                                 {skills.skill(skill)}
                                 {project_lang.project_lan()}
                             </div>
+                                <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+                                <script>
+                                    const element = document.getElementById('resume');
+                                    html2pdf()
+                                        .from(element)
+                                        .save('Gokul_Vasanth_Resume.pdf');
+                                </script>
                         </body>
+                        </html>
                     """
-
-
-        pdf_file = asyncio.run(generate_pdf(html_template))
-
-        response = HttpResponse(pdf_file, content_type='application/pdf')
-        response['Content-Disposition'] = f'inline; filename="GokulVasanth_{role}_Resume.pdf"'
-
-        return response
+        return redirect('download')
 
     return render(request, 'index.html')
+
+def download(request):
+
+    return render(request, 'download.html', {'html_content': html_content})

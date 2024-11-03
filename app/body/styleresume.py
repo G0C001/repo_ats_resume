@@ -9,16 +9,14 @@ def style():
           <meta http-equiv="X-UA-Compatible" content="IE=edge">
           <title>Resume - D. Gokul Vasanth</title>
             <style>
-              /* A4 page size */
               @page {
                 size: A4;
-                margin: 0mm;
               }
 
               body {
                 font-family: Arial, sans-serif;
-                font-size: 12px;
-                line-height: 1.6;
+                font-size: 14px;
+                line-height: 1.7;
                 color: #333;
                 margin: 0;
                 padding: 0;
