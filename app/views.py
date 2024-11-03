@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 from app.body import styleresume, personal, summary, education, experience_certfy, skills, project_lang
 
 def resume(request):
