@@ -11,12 +11,13 @@ def style():
             <style>
               @page {
                 size: A4;
+                margin: 0mm;
               }
 
               body {
                 font-family: Arial, sans-serif;
                 font-size: 14px;
-                line-height: 1.7;
+                line-height: 1.4;
                 color: #333;
                 margin: 0;
                 padding: 0;
