@@ -30,19 +30,3 @@ dnf install -y glib2 pango fontconfig glibc-langpack-en
 echo "Required libraries installed."
 
 dnf list
-
-# Check if the locale is available
-if ! locale -a | grep -q "en_US.utf8"; then
-    echo "Generating en_US.UTF-8 locale..."
-    localedef -v -c -i en_US -f UTF-8 en_US.UTF-8
-    echo "Locale en_US.UTF-8 generated."
-else
-    echo "Locale en_US.UTF-8 is already available."
-fi
-
-# Set locale environment variables
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-echo "Locale set to en_US.UTF-8."
-
-echo "Build completed successfully!"
