@@ -29,6 +29,8 @@ echo "System packages updated."
 dnf install -y glib2 pango fontconfig glibc-langpack-en
 echo "Required libraries installed."
 
+dnf list
+
 # Check if the locale is available
 if ! locale -a | grep -q "en_US.utf8"; then
     echo "Generating en_US.UTF-8 locale..."
