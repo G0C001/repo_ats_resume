@@ -26,7 +26,6 @@ dnf update -y
 echo "System packages updated."
 
 # Install required libraries
-dnf install -y glib2 pango fontconfig glibc-langpack-en
+dnf install -y glib2 pango fontconfig
 echo "Required libraries installed."
 
-dnf list
