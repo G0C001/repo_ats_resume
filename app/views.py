@@ -2,17 +2,7 @@ from django.shortcuts import render, redirect
 from app.body import styleresume, personal, summary, education, experience_certfy, skills, project_lang
 from django.http import HttpResponse
 import json
-# import ctypes
-# import os
-# dll_directory = r"./GTK3"
-# for file_name in os.listdir(dll_directory):
-#     if file_name.endswith(".dll"):
-#         dll_path = os.path.join(dll_directory, file_name)
-#         try:
-#             my_dll = ctypes.CDLL(dll_path)
-#         except Exception as e:
-#             print(f"Failed to load {dll_path}: {e}")
-# from weasyprint import HTML
+from weasyprint import HTML
 
 def resume(request):
     if request.method == 'POST':
@@ -41,14 +31,12 @@ def resume(request):
                         </body>
                         </html>
                     """
-         # Create a PDF response
-        # pdf = HTML(string=html_content).write_pdf()
+        pdf = HTML(string=html_content).write_pdf()
         
-        # Set up the response
-        # response = HttpResponse(pdf, content_type='application/pdf')
-        # response['Content-Disposition'] = f'attachment; filename="Gokul_Vasanth_{role}_Resume.pdf"'
+        response = HttpResponse(pdf, content_type='application/pdf')
+        response['Content-Disposition'] = f'attachment; filename="Gokul_Vasanth_{role}_Resume.pdf"'
         
-        return 'response'
+        return response
 
     return render(request, 'index.html')
 
