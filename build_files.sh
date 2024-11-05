@@ -1,19 +1,20 @@
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-if [ -f "requirements.txt" ]; then
-    pip3 install -r requirements.txt
-    echo "Python dependencies installed."
-else
-    echo "requirements.txt not found, skipping Python dependencies installation."
-fi
-dnf install -y pango cairo gdk-pixbuf2 libffi
+# python3 -m venv myenv
+# source myenv/bin/activate
+# pip install -r requirements.txt
 
+# dnf install -y libgobject-2.0.so libpango-1.0.so libfontconfig.so libpangoft2-1.0.so
+# python3 -m venv myenv
+# source myenv/bin/activate
+# pip3 install -r requirements.txt
 
-# Update system packages
-dnf update -y
-echo "System packages updated."
+# # Update the system and install necessary development libraries using dnf
+# sudo dnf update -y
+# sudo dnf install -y glib2 pango fontconfig
 
-# Install required libraries
-dnf install -y glib2 pango fontconfig
-echo "Required libraries installed."
+# pip3 install django Weasyprint
 
+# echo "Setup completed successfully!"
+# echo "dll installed"
+pip3 install PyGObject
+
+echo "Setup completed successfully!"
