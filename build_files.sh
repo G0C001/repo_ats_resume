@@ -1,16 +1,10 @@
 python3 -m venv myenv
 source myenv/bin/activate
 pip install -r requirements.txt
-apt update
-apt install -y libgobject-2.0-0 libpango-1.0-0 libfontconfig1 libpangoft2-1.0-0
 
-# Install pip if not installed
-if ! command -v pip3 &> /dev/null
-then
-    apt install -y python3-pip
-fi
+sudo dnf update -y
+sudo dnf install -y libgobject-2.0.so libpango-1.0.so libfontconfig.so libpangoft2-1.0.so
 
-# Install Python packages from requirements.txt
-pip3 install -r requirements.txt
+pip3 install django Weasyprint
 
 echo "Setup completed successfully!"
